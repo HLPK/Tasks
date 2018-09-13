@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,8 +11,9 @@ namespace CSharpCourse
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("test1");
-            Console.WriteLine("test2");
+            SimCorpMobile mobile = new SimCorpMobile();
+            Console.WriteLine(  mobile.GetDescription());
+            Console.ReadKey();
         }
     }
 }
