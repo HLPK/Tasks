@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSharpCourse.KeyBoards {
-    public class KeyBoardVioceGoogle : KeyBoardVirtual {
+namespace CSharpCourse.Screens {
+    public interface IScreenImage {
     }
 }

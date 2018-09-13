@@ -18,6 +18,15 @@ namespace CSharpCourse {
         FeatherLightPurple,
         FeatherLightRed
     }
+    public enum FunctionalKeys {
+        Enter,
+        BackSpace,
+        AtlTab,
+        N,
+        Slash,
+        Space
+    }
+
     public abstract class KeyBoardBase {
 
     }

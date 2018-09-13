@@ -12,7 +12,7 @@ namespace CSharpCourse.KeyBoards {
 
         public override string ToString()
         {
-            return $"Virual keyboard Swift Key layuot {Layout} theme {Theme}.";
+            return $"Virual keyboard Swift Key /layuot {Layout} theme {Theme}/.";
         }
     }
 }
