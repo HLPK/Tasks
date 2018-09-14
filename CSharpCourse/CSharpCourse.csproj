@@ -58,6 +58,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddDictionary\ABBYYDict.cs" />
+    <Compile Include="ConsoleOutput.cs" />
+    <Compile Include="Factory\FactoryBase.cs" />
+    <Compile Include="Factory\FactoryDict.cs" />
+    <Compile Include="IOutput.cs" />
+    <Compile Include="AddDictionary\ITranslate.cs" />
+    <Compile Include="AddDictionary\OxfordDict.cs" />
+    <Compile Include="AddDictionary\PromptDict.cs" />
+    <Compile Include="AddDictionary\UnknownDict.cs" />
     <Compile Include="KeyBoards\KeyBoardsVoiceMatch.cs" />
     <Compile Include="Screens\ColorfulScreen.cs" />
     <Compile Include="Dimensions.cs" />
