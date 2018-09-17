@@ -5,20 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CSharpCourse.AddDictionary {
-    public class UnknownDict : ITranslate {
+    public class PromptDict : ITranslate{
         private IOutput Output;
 
-        public UnknownDict(IOutput output) {
+        public PromptDict(IOutput output) {
             Output = output;
         }
-
         public void Translate(object data)
         {
-            Output.WriteLine($"{nameof(UnknownDict)} is translating");
+            Output.WriteLine("Prompt dictionary is translating");
         }
 
         public override string ToString() {
-            return "Unknown dictionary";
+            return "Prompt dictionary";
         }
     }
 }

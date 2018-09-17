@@ -10,10 +10,10 @@ namespace CSharpCourse.Factory {
     public class FactoryDict : FactoryBase{
 
         public override ITranslate[] Factory { get; set; }
-        //public IOutput output;
 
-        public FactoryDict(ref IOutput output) {
-           // this.output = output;
+        public FactoryDict(IOutput output)
+        {
+            Output = output;
             Factory = new ITranslate[4];
             Factory[0] = new ABBYYDict(output);
             Factory[1] = new OxfordDict(output);

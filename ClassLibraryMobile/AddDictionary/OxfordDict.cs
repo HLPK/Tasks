@@ -5,19 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CSharpCourse.AddDictionary {
-    public class PromptDict : ITranslate{
+    public class OxfordDict : ITranslate {
         private IOutput Output;
 
-        public PromptDict(IOutput output) {
+        public OxfordDict(IOutput output) {
             Output = output;
         }
         public void Translate(object data)
         {
-            Output.WriteLine($"{nameof(PromptDict)} is translating");
+            Output.WriteLine("Oxford dictionary is translating");
         }
 
         public override string ToString() {
-            return "Prompt dictionary";
+            return "Oxford dictionary";
         }
     }
 }

@@ -27,16 +27,17 @@ namespace CSharpCourse
             ///////////////////////////////////////////////////
             Console.WriteLine("Unit2");
             IOutput output = new ConsoleOutput();
-            FactoryDict factory = new FactoryDict(output: ref output);
+            FactoryDict factory = new FactoryDict(output: output);
 
             output.WriteLine("Select Dictionary (specify index)");
+            //output.PrintFactory(factory);
             factory.Print();
 
             int choise_int = 0;
             if (MakeChoise(out choise_int))
             {
                 int ind = choise_int - 1;
-                ITranslate choise_item = factory.GetFactoryItem(ref ind);
+                ITranslate choise_item = factory.GetFactoryItem(ind);
                 output.WriteLine($"{choise_item.ToString()} selected");
                 output.WriteLine(" Set Dictionary to Mobile...");
                 output.WriteLine(" Start translating...");

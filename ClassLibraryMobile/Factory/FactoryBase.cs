@@ -7,21 +7,26 @@ using System.Threading.Tasks;
 using CSharpCourse.AddDictionary;
 
 namespace CSharpCourse.Factory {
-    public abstract class FactoryBase
+    public abstract class FactoryBase : IEnumerable
     {
+        public IOutput Output { get; set; }
         public abstract ITranslate[] Factory { get; set; }
-        private IOutput output = new ConsoleOutput();
+
+        public IEnumerator GetEnumerator()
+        {
+            return (IEnumerator) GetEnumerator();
+        }
 
         public void Print()
         {
-            int i = 1;    
+            int i = 1;
             foreach (var item in Factory)
             {
-                output.WriteLine($"{i++.ToString()} - {item.ToString()}");
+                Output.WriteLine($"{i++.ToString()} - {item.ToString()}");
             }
         }
 
-        public ITranslate GetFactoryItem(ref int ind)
+        public ITranslate GetFactoryItem(int ind)
         {
             return Factory[ind];
         }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using CSharpCourse.Factory;
 
 namespace CSharpCourse {
     class ConsoleOutput : IOutput {
@@ -16,5 +17,14 @@ namespace CSharpCourse {
         {
             Console.WriteLine(text);
         }
+
+//        public void PrintFactory(FactoryBase factory)
+//        {
+//            int i = 1;
+//            foreach (var item in factory) {
+//                WriteLine($"{i++.ToString()} - {item.ToString()}");
+//            }
+//        }
+
     }
 }

@@ -10,6 +10,11 @@ namespace CSharpCourse.KeyBoards {
         public Layouts Layout { get; set; }
         public Themes Theme { get; set; }
 
+        public KeyBoardSwiftKey(Layouts layout, Themes theme) {
+            Layout = layout;
+            Theme = theme;
+        }
+
         public override string ToString()
         {
             return $"Virual keyboard Swift Key /layuot {Layout} theme {Theme}/.";

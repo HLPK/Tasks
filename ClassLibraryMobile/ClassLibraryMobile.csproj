@@ -4,32 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2C011133-BC7E-4A0F-A254-220EC6BDFF6F}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{86B0D576-3822-439D-B543-4989DAB519B1}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CSharpCourse</RootNamespace>
-    <AssemblyName>CSharpCourse</AssemblyName>
+    <RootNamespace>ClassLibraryMobile</RootNamespace>
+    <AssemblyName>ClassLibraryMobile</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -39,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -58,30 +40,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsoleOutput.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Battery\BatteryBase.cs" />
+    <Compile Include="Battery\LiIonBattery.cs" />
+    <Compile Include="Battery\LiPolBattery.cs" />
+    <Compile Include="Battery\NiCdBattery.cs" />
+    <Compile Include="Battery\NiMHBattery.cs" />
+    <Compile Include="AddDictionary\ABBYYDict.cs" />
+    <Compile Include="AddDictionary\ITranslate.cs" />
+    <Compile Include="AddDictionary\OxfordDict.cs" />
+    <Compile Include="AddDictionary\PromptDict.cs" />
+    <Compile Include="AddDictionary\UnknownDict.cs" />
+    <Compile Include="Dimensions.cs" />
+    <Compile Include="Dynamic.cs" />
+    <Compile Include="Factory\FactoryBase.cs" />
+    <Compile Include="Factory\FactoryDict.cs" />
+    <Compile Include="IOutput.cs" />
+    <Compile Include="KeyBoards\KeyBoardBase.cs" />
+    <Compile Include="KeyBoards\KeyBoardGBoard.cs" />
+    <Compile Include="KeyBoards\KeyBoardPhysical.cs" />
+    <Compile Include="KeyBoards\KeyBoardsVoiceMatch.cs" />
+    <Compile Include="KeyBoards\KeyBoardSwiftKey.cs" />
+    <Compile Include="KeyBoards\KeyBoardVirtual.cs" />
+    <Compile Include="KeyBoards\KeyBoardVoiceGoogle.cs" />
+    <Compile Include="Microphone.cs" />
+    <Compile Include="Mobile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ClassLibraryMobile\ClassLibraryMobile.csproj">
-      <Project>{86b0d576-3822-439d-b543-4989dab519b1}</Project>
-      <Name>ClassLibraryMobile</Name>
-    </ProjectReference>
+    <Compile Include="Screens\ColorfulScreen.cs" />
+    <Compile Include="Screens\IScreenImage.cs" />
+    <Compile Include="Screens\MonochromeScreen.cs" />
+    <Compile Include="Screens\OLEDScreen.cs" />
+    <Compile Include="Screens\RetinaScreen.cs" />
+    <Compile Include="Screens\ScreenBase.cs" />
+    <Compile Include="SimCard.cs" />
+    <Compile Include="SimCorpMobile.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
