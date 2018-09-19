@@ -8,6 +8,7 @@ using CSharpCourse.AddDictionary;
 using CSharpCourse.Factory;
 using CSharpCourse.KeyBoards;
 using CSharpCourse.Screens;
+using SMSSimulation;
 
 namespace CSharpCourse
 {
@@ -16,10 +17,10 @@ namespace CSharpCourse
         static void Main(string[] args)
         {
             Console.WriteLine("Unit1");
-            SimCorpMobile mobile1 = new SimCorpMobile( id: 1, screen: new OLEDScreen(size: 5, pixels: new Dimensions(1280, 800)), keyboard: new KeyBoardGBoard(layout: Layouts.English, theme: Themes.FeatherLightRed) );
+            SimCorpMobile mobile1 = new SimCorpMobile( id: 1, screen: new OLEDScreen(size: 5, pixels: new Dimensions(1280, 800)), keyboard: new KeyBoardGBoard(layout: Layouts.English, theme: Themes.FeatherLightRed), smsProvider: new SMSProvider());
             mobile1.ShowDescription();
 
-            SimCorpMobile mobile2 = new SimCorpMobile(id: 2, screen: new RetinaScreen(), keyboard: new KeyBoardGBoard(layout: Layouts.Ukrainian, theme: Themes.FeatherDarkRed));
+            SimCorpMobile mobile2 = new SimCorpMobile(id: 2, screen: new RetinaScreen(), keyboard: new KeyBoardGBoard(layout: Layouts.Ukrainian, theme: Themes.FeatherDarkRed), smsProvider: new SMSProvider());
             mobile2.ShowDescription();
             
             Console.WriteLine();

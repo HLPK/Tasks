@@ -122,6 +122,7 @@
             this.textBoxRes.Name = "textBoxRes";
             this.textBoxRes.Size = new System.Drawing.Size(260, 102);
             this.textBoxRes.TabIndex = 6;
+            this.textBoxRes.TextChanged += new System.EventHandler(this.textBoxRes_TextChanged);
             // 
             // FormMain
             // 

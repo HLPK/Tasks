@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryMobile", "Class
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestMobile", "UnitTestMobile\UnitTestMobile.csproj", "{61239824-769E-4E62-B312-627A983984D1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMSSimulation", "SMSSimulation\SMSSimulation.csproj", "{122D4F7B-B61B-4DA1-93B6-CD8190E73A38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMSSimulationTests", "SMSSimulationTests\SMSSimulationTests.csproj", "{4C3A955F-2017-4B23-B713-2DEFD7F818B6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{61239824-769E-4E62-B312-627A983984D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61239824-769E-4E62-B312-627A983984D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61239824-769E-4E62-B312-627A983984D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{122D4F7B-B61B-4DA1-93B6-CD8190E73A38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{122D4F7B-B61B-4DA1-93B6-CD8190E73A38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{122D4F7B-B61B-4DA1-93B6-CD8190E73A38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{122D4F7B-B61B-4DA1-93B6-CD8190E73A38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C3A955F-2017-4B23-B713-2DEFD7F818B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C3A955F-2017-4B23-B713-2DEFD7F818B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C3A955F-2017-4B23-B713-2DEFD7F818B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C3A955F-2017-4B23-B713-2DEFD7F818B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

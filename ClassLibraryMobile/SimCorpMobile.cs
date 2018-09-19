@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CSharpCourse.Battery;
 using CSharpCourse.Screens;
+using SMSSimulation;
 
 namespace CSharpCourse
 {
@@ -31,10 +32,15 @@ namespace CSharpCourse
         public override Microphone Microphone { get { return mic; } }
         private readonly Microphone mic = new Microphone(frequencyFrom: 100, frequencyTo: 160, distance: 1.5);
 
-        public SimCorpMobile(int id, ScreenBase screen, KeyBoardBase keyboard) {
+        public SimCorpMobile(int id, ScreenBase screen, KeyBoardBase keyboard, SMSProvider smsProvider) :base(smsProvider) {
             this.ID = id;
             this.Screen = screen;
             this.Keyboard = keyboard;
+
         }
+
+       
+
+
     }
 }

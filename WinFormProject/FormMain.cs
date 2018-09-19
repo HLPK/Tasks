@@ -51,6 +51,10 @@ namespace WinFormProject {
             selectedItem = 3;
         }
 
+        private void textBoxRes_TextChanged(object sender, EventArgs e) {
+
+        }
+
         private void buttonApply_Click(object sender, EventArgs e) {
             textBoxRes.Clear();
 

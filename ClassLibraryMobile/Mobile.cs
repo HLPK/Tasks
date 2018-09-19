@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CSharpCourse.Battery;
 using CSharpCourse.Screens;
+using SMSSimulation;
 
 namespace CSharpCourse
 {
@@ -17,6 +18,13 @@ namespace CSharpCourse
         public abstract SimCard SimCard { get; }
         public abstract Dynamic Dynamic { get; }
         public abstract Microphone Microphone { get; }
+        public SMSProvider SmsProvider { get; set; }
+
+
+        public Mobile(SMSProvider smsProvider)
+        {
+            SmsProvider = smsProvider; 
+        }
 
         private void Show(IScreenImage image) {
             Screen.Show(image);
