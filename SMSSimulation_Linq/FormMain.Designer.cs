@@ -60,6 +60,8 @@
             this.comboBoxUser.Size = new System.Drawing.Size(241, 21);
             this.comboBoxUser.TabIndex = 2;
             this.comboBoxUser.Text = "Select subscriber";
+            this.comboBoxUser.SelectedIndexChanged += new System.EventHandler(this.comboBoxUser_SelectedIndexChanged);
+            this.comboBoxUser.Click += new System.EventHandler(this.comboBoxUser_Click);
             // 
             // textBoxMsgPattern
             // 

@@ -123,5 +123,20 @@ namespace SMSSimulation_Linq {
         private void listViewMsg_SelectedIndexChanged(object sender, EventArgs e) {
 
         }
+
+        private void comboBoxUser_SelectedIndexChanged(object sender, EventArgs e) {
+            
+
+            
+            
+        }
+
+        private void comboBoxUser_Click(object sender, EventArgs e) {
+            comboBoxUser.Items.Clear();
+            var rez = messages.GroupBy(m => m.User).Select(m => m).ToList();
+            foreach (var item in rez) {
+                comboBoxUser.Items.Add(item.Key);
+            }
+        }
     }
 }
