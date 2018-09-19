@@ -9,12 +9,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
+using ClassLibraryMobile;
 using CSharpCourse;
 using CSharpCourse.KeyBoards;
 using CSharpCourse.Screens;
-//using System.Timers;
+using SMSSimulation;
+using Message = ClassLibraryMobile.Message;
 
-namespace SMSSimulation {
+namespace SMSSimulation_Linq {
     public partial class FormMain :Form
     {
         private SimCorpMobile mobile = new SimCorpMobile(3, new RetinaScreen(), new KeyBoardGBoard(layout: Layouts.English, theme: Themes.FeatherDarkBlue), new SMSProvider());
@@ -23,9 +25,11 @@ namespace SMSSimulation {
         private delegate string FormatDelegate(string text);
         private FormatDelegate formatter;
 
-        private WinFormRTBOutput winFormRtbOutput;
+       // private WinFormRTBOutput winFormRtbOutput;
 
         private static int iCount = 0;
+
+        private List<ClassLibraryMobile.Message> messages;
 
         static System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
 
@@ -33,20 +37,21 @@ namespace SMSSimulation {
         public FormMain()
         {
             InitializeComponent();
-            winFormRtbOutput = new WinFormRTBOutput(richTextBoxMessages);
+            //winFormRtbOutput = new WinFormRTBOutput(richTextBoxMessages);
+            messages = new List<Message>();
 
             myTimer.Tick += new EventHandler(TimerEventProcessor);
-            myTimer.Interval = 2000;
+            myTimer.Interval = 1000;
             myTimer.Start();
 
-            mobile.SmsProvider.SMSReceived += OnSmsReceived;
+            mobile.SmsProvider.SMSMessageReceived += OnSmsReceived;
 
             formats = new Formats();
             formatter += formats.FormatNone;
         }
 
         private void TimerEventProcessor(Object myObject, EventArgs myEventArgs) {
-            mobile.SmsProvider.GetSms($"Message #{++iCount} received!");
+            mobile.SmsProvider.GetSms(new ClassLibraryMobile.Message($"Message #{++iCount} received!"));
         }
 
         private void comboBoxSelectFormat_SelectedIndexChanged(object sender, EventArgs e)
@@ -81,15 +86,18 @@ namespace SMSSimulation {
         }
 
        
-        public void OnSmsReceived(string message) {
+        public void OnSmsReceived(ClassLibraryMobile.Message message) {
             if (InvokeRequired)
             {
-                Invoke(new SMSProvider.SMSReceivedDelegate(OnSmsReceived), message);
+                Invoke(new SMSProvider.SMSMessageReceivedDelegate(OnSmsReceived), message);
                 return;
             }
 
-            string formattedMessage = formatter($"{message}");
-            winFormRtbOutput.WriteLine(formattedMessage);
+            string formattedMessage = formatter($"{message.Text}");
+            message.Text = formattedMessage;
+            message.ReceivingTime = DateTime.Now;
+            messages.Add(message);
+            //winFormRtbOutput.WriteLine($"{formattedMessage} from {message.User}");
         }
 
 
@@ -99,6 +107,20 @@ namespace SMSSimulation {
         }
 
         private void richTextBoxMessages_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e) {
+            listViewMsg.Items.Clear();
+            listViewMsg.View = View.Details;
+            foreach (ClassLibraryMobile.Message msg in messages)
+            {
+                listViewMsg.Items.Add(new ListViewItem(new[] { msg.User, msg.Text, msg.ReceivingTime.ToString()}));
+            }
+            
+        }
+
+        private void listViewMsg_SelectedIndexChanged(object sender, EventArgs e) {
 
         }
     }
