@@ -52,7 +52,8 @@
     <Compile Include="AddDictionary\PromptDict.cs" />
     <Compile Include="AddDictionary\UnknownDict.cs" />
     <Compile Include="Dimensions.cs" />
-    <Compile Include="Message.cs" />
+    <Compile Include="Messages\Filter.cs" />
+    <Compile Include="Messages\Message.cs" />
     <Compile Include="OtherComponents\Dynamic.cs" />
     <Compile Include="Factory\FactoryBase.cs" />
     <Compile Include="Factory\FactoryDict.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="OtherComponents\SimCard.cs" />
     <Compile Include="SimCorpMobile.cs" />
     <Compile Include="SMSProvider.cs" />
+    <Compile Include="Storage.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

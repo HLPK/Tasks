@@ -17,7 +17,7 @@ using CSharpCourse.Screens;
 namespace SMSSimulation {
     public partial class FormMain :Form
     {
-        private SimCorpMobile mobile = new SimCorpMobile(3, new RetinaScreen(), new KeyBoardGBoard(layout: Layouts.English, theme: Themes.FeatherDarkBlue), new SMSProvider());
+        private SimCorpMobile mobile = new SimCorpMobile(3, new RetinaScreen(), new KeyBoardGBoard(layout: Layouts.English, theme: Themes.FeatherDarkBlue));
 
         private Formats formats;    
         private delegate string FormatDelegate(string text);

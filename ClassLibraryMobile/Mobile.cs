@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using CSharpCourse.Battery;
 using CSharpCourse.Screens;
 using SMSSimulation;
+using ClassLibraryMobile;
 
-namespace CSharpCourse
-{
+namespace CSharpCourse {
     public abstract class Mobile
     {
         public abstract int ID { get; set; }
@@ -18,12 +15,22 @@ namespace CSharpCourse
         public abstract SimCard SimCard { get; }
         public abstract Dynamic Dynamic { get; }
         public abstract Microphone Microphone { get; }
+
         public SMSProvider SmsProvider { get; set; }
+        public Storage Store { get; set; }
 
 
-        public Mobile(SMSProvider smsProvider)
+//        public Mobile(SMSProvider smsProvider)
+//        {
+//            SmsProvider = smsProvider; 
+//        }
+
+        public Mobile()
         {
-            SmsProvider = smsProvider; 
+            SmsProvider = new SMSProvider();
+            Store = new Storage();
+            SmsProvider.SMSMessageReceived += (message) => Store.AddMessage(message);
+            SmsProvider.SMSMessageSent += (message) => Store.AddMessage(message);
         }
 
         private void Show(IScreenImage image) {

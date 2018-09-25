@@ -32,7 +32,7 @@ namespace CSharpCourse
         public override Microphone Microphone { get { return mic; } }
         private readonly Microphone mic = new Microphone(frequencyFrom: 100, frequencyTo: 160, distance: 1.5);
 
-        public SimCorpMobile(int id, ScreenBase screen, KeyBoardBase keyboard, SMSProvider smsProvider) :base(smsProvider) {
+        public SimCorpMobile(int id, ScreenBase screen, KeyBoardBase keyboard) {
             this.ID = id;
             this.Screen = screen;
             this.Keyboard = keyboard;

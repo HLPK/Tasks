@@ -17,6 +17,10 @@ namespace SMSSimulation {
 
         public event SMSMessageReceivedDelegate SMSMessageReceived;
 
+        public delegate void SMSMessageSentDelegate(Message message);
+
+        public event SMSMessageSentDelegate SMSMessageSent;
+
         public SMSProvider() { }
 
         private void RaiseSMSReceivedEvent(string message) {
@@ -27,12 +31,20 @@ namespace SMSSimulation {
             SMSMessageReceived?.Invoke(message);
         }
 
+        private void RaiseSMSSentEvent(Message message) {
+            SMSMessageSent?.Invoke(message);
+        }
+
         public void GetSms(string message) {
             RaiseSMSReceivedEvent(message);
         }
 
         public void GetSms(Message message) {
             RaiseSMSReceivedEvent(message);
+        }
+
+        public void SendSms(Message message) {
+            RaiseSMSSentEvent(message);
         }
     }
 }
