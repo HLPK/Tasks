@@ -83,6 +83,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(105, 20);
             this.dateTimePicker1.TabIndex = 4;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // dateTimePicker2
             // 
@@ -201,7 +202,9 @@
             this.Controls.Add(this.textBoxMsgPattern);
             this.Controls.Add(this.comboBoxUser);
             this.Controls.Add(this.comboBoxSelectFormat);
+            this.MinimizeBox = false;
             this.Name = "FormMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain_FormClosed);
             this.groupBoxFilter.ResumeLayout(false);
             this.groupBoxFilter.PerformLayout();

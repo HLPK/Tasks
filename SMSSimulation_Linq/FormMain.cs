@@ -57,7 +57,10 @@ namespace SMSSimulation_Linq {
             mobile.Store.MessageAdded += UpdateListViewMsg;
             mobile.Store.MessageRemoved += UpdateListViewMsg;
 
+            dateTimePicker1.Value = DateTime.Now.AddDays(-1);
+            dateTimePicker2.Value = DateTime.Now.AddDays(+1);
 
+            checkedListBox1.SetItemChecked(2,true); 
         }
 
         private void TimerEventReceiveProcessor(Object myObject, EventArgs myEventArgs) {
@@ -170,6 +173,10 @@ namespace SMSSimulation_Linq {
             {
                 mobile.Store.RemoveMessage(msg);
             }
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e) {
+
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e) {
