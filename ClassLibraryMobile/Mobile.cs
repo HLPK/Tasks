@@ -17,6 +17,7 @@ namespace CSharpCourse {
         public abstract Microphone Microphone { get; }
 
         public SMSProvider SmsProvider { get; set; }
+
         public Storage Store { get; set; }
 
 
