@@ -42,11 +42,12 @@
             this.radioButtonSendSMSThread = new System.Windows.Forms.RadioButton();
             this.buttonSendSMSStart = new System.Windows.Forms.Button();
             this.groupBoxCharging = new System.Windows.Forms.GroupBox();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.buttonChargeStart = new System.Windows.Forms.Button();
-            this.buttonChargeStop = new System.Windows.Forms.Button();
-            this.radioButtonChargeByThread = new System.Windows.Forms.RadioButton();
+            this.labelCharging = new System.Windows.Forms.Label();
             this.radioButtonChargeByTask = new System.Windows.Forms.RadioButton();
+            this.radioButtonChargeByThread = new System.Windows.Forms.RadioButton();
+            this.buttonChargeStop = new System.Windows.Forms.Button();
+            this.buttonChargeStart = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.groupBoxFilter.SuspendLayout();
             this.groupBoxSMSGenerating.SuspendLayout();
             this.groupBoxCharging.SuspendLayout();
@@ -241,6 +242,7 @@
             // 
             // groupBoxCharging
             // 
+            this.groupBoxCharging.Controls.Add(this.labelCharging);
             this.groupBoxCharging.Controls.Add(this.radioButtonChargeByTask);
             this.groupBoxCharging.Controls.Add(this.radioButtonChargeByThread);
             this.groupBoxCharging.Controls.Add(this.buttonChargeStop);
@@ -252,31 +254,28 @@
             this.groupBoxCharging.TabIndex = 10;
             this.groupBoxCharging.TabStop = false;
             this.groupBoxCharging.Text = "Charging";
+            this.groupBoxCharging.Enter += new System.EventHandler(this.groupBoxCharging_Enter);
             // 
-            // progressBar1
+            // labelCharging
             // 
-            this.progressBar1.Location = new System.Drawing.Point(9, 48);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(173, 23);
-            this.progressBar1.TabIndex = 0;
+            this.labelCharging.AutoSize = true;
+            this.labelCharging.Location = new System.Drawing.Point(199, 52);
+            this.labelCharging.Name = "labelCharging";
+            this.labelCharging.Size = new System.Drawing.Size(33, 13);
+            this.labelCharging.TabIndex = 5;
+            this.labelCharging.Text = "100%";
             // 
-            // buttonChargeStart
+            // radioButtonChargeByTask
             // 
-            this.buttonChargeStart.Location = new System.Drawing.Point(9, 19);
-            this.buttonChargeStart.Name = "buttonChargeStart";
-            this.buttonChargeStart.Size = new System.Drawing.Size(87, 23);
-            this.buttonChargeStart.TabIndex = 1;
-            this.buttonChargeStart.Text = "Start";
-            this.buttonChargeStart.UseVisualStyleBackColor = true;
-            // 
-            // buttonChargeStop
-            // 
-            this.buttonChargeStop.Location = new System.Drawing.Point(102, 19);
-            this.buttonChargeStop.Name = "buttonChargeStop";
-            this.buttonChargeStop.Size = new System.Drawing.Size(80, 23);
-            this.buttonChargeStop.TabIndex = 2;
-            this.buttonChargeStop.Text = "Stop";
-            this.buttonChargeStop.UseVisualStyleBackColor = true;
+            this.radioButtonChargeByTask.AutoSize = true;
+            this.radioButtonChargeByTask.Location = new System.Drawing.Point(282, 19);
+            this.radioButtonChargeByTask.Name = "radioButtonChargeByTask";
+            this.radioButtonChargeByTask.Size = new System.Drawing.Size(63, 17);
+            this.radioButtonChargeByTask.TabIndex = 4;
+            this.radioButtonChargeByTask.TabStop = true;
+            this.radioButtonChargeByTask.Text = "by Task";
+            this.radioButtonChargeByTask.UseVisualStyleBackColor = true;
+            this.radioButtonChargeByTask.CheckedChanged += new System.EventHandler(this.radioButtonChargeByTask_CheckedChanged);
             // 
             // radioButtonChargeByThread
             // 
@@ -289,17 +288,37 @@
             this.radioButtonChargeByThread.TabStop = true;
             this.radioButtonChargeByThread.Text = "by Thread";
             this.radioButtonChargeByThread.UseVisualStyleBackColor = true;
+            this.radioButtonChargeByThread.CheckedChanged += new System.EventHandler(this.radioButtonChargeByThread_CheckedChanged);
             // 
-            // radioButtonChargeByTask
+            // buttonChargeStop
             // 
-            this.radioButtonChargeByTask.AutoSize = true;
-            this.radioButtonChargeByTask.Location = new System.Drawing.Point(282, 19);
-            this.radioButtonChargeByTask.Name = "radioButtonChargeByTask";
-            this.radioButtonChargeByTask.Size = new System.Drawing.Size(63, 17);
-            this.radioButtonChargeByTask.TabIndex = 4;
-            this.radioButtonChargeByTask.TabStop = true;
-            this.radioButtonChargeByTask.Text = "by Task";
-            this.radioButtonChargeByTask.UseVisualStyleBackColor = true;
+            this.buttonChargeStop.Enabled = false;
+            this.buttonChargeStop.Location = new System.Drawing.Point(102, 19);
+            this.buttonChargeStop.Name = "buttonChargeStop";
+            this.buttonChargeStop.Size = new System.Drawing.Size(80, 23);
+            this.buttonChargeStop.TabIndex = 2;
+            this.buttonChargeStop.Text = "Stop";
+            this.buttonChargeStop.UseVisualStyleBackColor = true;
+            this.buttonChargeStop.Click += new System.EventHandler(this.buttonChargeStop_Click);
+            // 
+            // buttonChargeStart
+            // 
+            this.buttonChargeStart.Location = new System.Drawing.Point(9, 19);
+            this.buttonChargeStart.Name = "buttonChargeStart";
+            this.buttonChargeStart.Size = new System.Drawing.Size(87, 23);
+            this.buttonChargeStart.TabIndex = 1;
+            this.buttonChargeStart.Text = "Start";
+            this.buttonChargeStart.UseVisualStyleBackColor = true;
+            this.buttonChargeStart.Click += new System.EventHandler(this.buttonChargeStart_Click);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(9, 48);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(173, 23);
+            this.progressBar1.Step = 1;
+            this.progressBar1.TabIndex = 0;
+            this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
             // 
             // FormMain
             // 
@@ -351,6 +370,7 @@
         private System.Windows.Forms.Button buttonChargeStop;
         private System.Windows.Forms.Button buttonChargeStart;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label labelCharging;
     }
 }
 

@@ -42,6 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Battery\BatteryBase.cs" />
+    <Compile Include="Battery\ChargingBattery.cs" />
+    <Compile Include="Battery\ChargingBatteryByTask.cs" />
+    <Compile Include="Battery\ChargingBatteryByThread.cs" />
     <Compile Include="Battery\LiIonBattery.cs" />
     <Compile Include="Battery\LiPolBattery.cs" />
     <Compile Include="Battery\NiCdBattery.cs" />
@@ -70,7 +73,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Provider\SMSByTask.cs" />
     <Compile Include="Provider\SMSByThread.cs" />
-    <Compile Include="Provider\SMSProviderFactoryTypes.cs" />
     <Compile Include="Screens\ColorfulScreen.cs" />
     <Compile Include="Screens\IScreenImage.cs" />
     <Compile Include="Screens\MonochromeScreen.cs" />

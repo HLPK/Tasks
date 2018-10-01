@@ -8,6 +8,7 @@ using CSharpCourse.Screens;
 using SMSSimulation;
 using Message = ClassLibraryMobile.Message;
 using System.Threading;
+using ClassLibraryMobile.Battery;
 using ClassLibraryMobile.Provider;
 
 namespace ThreadingsWinForm
@@ -22,17 +23,24 @@ namespace ThreadingsWinForm
         private readonly SimCorpMobile mobile = new SimCorpMobile(4, new RetinaScreen(),
             new KeyBoardGBoard(Layouts.English, Themes.FeatherDarkBlue));
 
-//        private static ManualResetEvent waitHandlerSend = new ManualResetEvent(false);
+        private ChargingBattery chargingBattery;
+        static System.Windows.Forms.Timer myTimerCheckCharging = new System.Windows.Forms.Timer();
 
         public FormMain()
         {
             InitializeComponent();
 
+
+            
+            GetChargingTool();
+
+            myTimerCheckCharging.Tick += new EventHandler(TimerEventCheckCharging);
+            myTimerCheckCharging.Interval = 1000;
+            myTimerCheckCharging.Start();
+
+
             formats = new Formats();
             formatter += formats.FormatNone;
-
-//            threadsend = new Thread(SendSMS);
-//            threadsend.IsBackground = true;
 
 
             mobile.Store.MessageAdded += UpdateListViewMsg;
@@ -44,6 +52,18 @@ namespace ThreadingsWinForm
             checkedListBox1.SetItemChecked(2, true);
         }
 
+        private void TimerEventCheckCharging(object sender, EventArgs e) {
+            progressBar1.Value = mobile.Battery.Charge;
+            labelCharging.Text = $"{progressBar1.Value.ToString()}%";
+        }
+
+        private void GetChargingTool()
+        {
+            if (chargingBattery != null) chargingBattery.StopAll();
+            if (radioButtonChargeByThread.Checked)
+                chargingBattery = new ChargingBatteryByThread(mobile.Battery);
+            else chargingBattery = new ChargingBatteryByTask(mobile.Battery);
+        }
 
 //        private void SendSMS()
 //        {
@@ -137,7 +157,6 @@ namespace ThreadingsWinForm
 
         private void buttonSendSMSStartStop_Click(object sender, EventArgs e)
         {
-            //StartSMS(waitHandlerSend);
             if (radioButtonSendSMSThread.Checked) mobile.SmsProvider = new SMSByThread(mobile.Store, formatter);
                 else mobile.SmsProvider = new SMSByTask(mobile.Store, formatter);
 
@@ -147,19 +166,6 @@ namespace ThreadingsWinForm
             radioButtonSendSMSByTask.Enabled = false;
         }
 
-//        private void StartSMS(ManualResetEvent waitHandler) {
-////            if (thre.ThreadState == (ThreadState.Background | ThreadState.Unstarted)) {
-////                waitHandler.Set();
-////                thre.Start();
-////            } else {
-//                waitHandler.Set();
-//           // }
-//        }
-
-//        private void StopSMS(ManualResetEvent waitHandler) {
-//            waitHandler.Reset();
-//        }
-
         private void radioButtonSendSMSThread_CheckedChanged(object sender, EventArgs e) {
 
         }
@@ -167,11 +173,9 @@ namespace ThreadingsWinForm
         private void radioButtonSendSMSByTask_CheckedChanged(object sender, EventArgs e) {
 
         }
-
         
 
         private void buttonSendSMSStop_Click(object sender, EventArgs e) {
-            //  StopSMS(providerSendCurrent.waitHandlerSend);
             mobile.SmsProvider.StopSubProvider();
             buttonSendSMSStart.Enabled = true;
             buttonSendSMSStop.Enabled = false;
@@ -179,5 +183,37 @@ namespace ThreadingsWinForm
             radioButtonSendSMSByTask.Enabled = true;
         }
 
+        private void progressBar1_Click(object sender, EventArgs e) {
+
+        }
+
+        private void buttonChargeStart_Click(object sender, EventArgs e)
+        {
+            chargingBattery.Charge();
+            buttonChargeStart.Enabled = false;
+            buttonChargeStop.Enabled = true;
+            radioButtonChargeByThread.Enabled = false;
+            radioButtonChargeByTask.Enabled = false;
+        }
+
+        private void groupBoxCharging_Enter(object sender, EventArgs e) {
+
+        }
+
+        private void radioButtonChargeByThread_CheckedChanged(object sender, EventArgs e) {
+            GetChargingTool();
+        }
+
+        private void buttonChargeStop_Click(object sender, EventArgs e) {
+            chargingBattery.StopCharge();
+            buttonChargeStart.Enabled = true;
+            buttonChargeStop.Enabled = false;
+            radioButtonChargeByThread.Enabled = true;
+            radioButtonChargeByTask.Enabled = true;
+        }
+
+        private void radioButtonChargeByTask_CheckedChanged(object sender, EventArgs e) {
+            GetChargingTool();
+        }
     }
 }
