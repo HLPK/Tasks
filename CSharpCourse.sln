@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadingsWinForm", "Thread
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadingsTests", "ThreadingsTests\ThreadingsTests.csproj", "{530DB4B3-8427-4E8A-862A-B1BB8493AD1B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsWinForm", "ContactsWinForm\ContactsWinForm.csproj", "{6526A263-C020-4D55-9203-CE80AE6A5B23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsTests", "ContactsTests\ContactsTests.csproj", "{BF4AFDBD-4DC2-44DB-ACE8-7E9FDA60B346}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +73,14 @@ Global
 		{530DB4B3-8427-4E8A-862A-B1BB8493AD1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{530DB4B3-8427-4E8A-862A-B1BB8493AD1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{530DB4B3-8427-4E8A-862A-B1BB8493AD1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6526A263-C020-4D55-9203-CE80AE6A5B23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6526A263-C020-4D55-9203-CE80AE6A5B23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6526A263-C020-4D55-9203-CE80AE6A5B23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6526A263-C020-4D55-9203-CE80AE6A5B23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF4AFDBD-4DC2-44DB-ACE8-7E9FDA60B346}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF4AFDBD-4DC2-44DB-ACE8-7E9FDA60B346}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF4AFDBD-4DC2-44DB-ACE8-7E9FDA60B346}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF4AFDBD-4DC2-44DB-ACE8-7E9FDA60B346}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

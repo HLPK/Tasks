@@ -28,9 +28,9 @@ namespace ClassLibraryMobile.Provider {
             while (true)
             {
                 base.SendSms(new Message(Fm($"Message #{++iCountSend} sent!"), false));
-                Thread.Sleep(2000);
+                Thread.Sleep(1000);
                 base.SendSms(new Message(Fm($"Message #{++iCountReceive} received!"), false));
-                Thread.Sleep(2000);
+                Thread.Sleep(1000);
             }
         }
 

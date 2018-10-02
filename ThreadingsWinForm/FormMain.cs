@@ -112,6 +112,11 @@ namespace ThreadingsWinForm
 
         private void UpdateListViewMsg()
         {
+            if (this.InvokeRequired)
+            {
+                Invoke(new MethodInvoker(UpdateListViewMsg)); return;
+            }
+
             var filter = new Filter(comboBoxUser.SelectedItem?.ToString(),
                 textBoxMsgPattern.Text,
                 dateTimePicker1.Value, dateTimePicker2.Value,
@@ -134,6 +139,7 @@ namespace ThreadingsWinForm
 
         private void comboBoxUser_SelectedIndexChanged(object sender, EventArgs e)
         {
+            UpdateListViewMsg();
         }
 
         private void comboBoxUser_Click(object sender, EventArgs e)
@@ -149,10 +155,12 @@ namespace ThreadingsWinForm
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
+            UpdateListViewMsg();
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            UpdateListViewMsg();
         }
 
         private void buttonSendSMSStartStop_Click(object sender, EventArgs e)
@@ -214,6 +222,26 @@ namespace ThreadingsWinForm
 
         private void radioButtonChargeByTask_CheckedChanged(object sender, EventArgs e) {
             GetChargingTool();
+        }
+
+        private void textBoxMsgPattern_TextChanged(object sender, EventArgs e)
+        {
+            UpdateListViewMsg();
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateListViewMsg();
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateListViewMsg();
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateListViewMsg();
         }
     }
 }
