@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
 using CSharpCourse.Battery;
 using CSharpCourse.Screens;
 using SMSSimulation;
 using ClassLibraryMobile;
+//using ContactsWinForm;
 
 namespace CSharpCourse {
     public abstract class Mobile
@@ -20,6 +22,9 @@ namespace CSharpCourse {
 
         public Storage Store { get; set; }
 
+        public List<Contact> Contacts { get; set; }
+        public CallsBook Calls { get; set; }
+
 
 //        public Mobile(SMSProvider smsProvider)
 //        {
@@ -28,6 +33,8 @@ namespace CSharpCourse {
 
         public Mobile()
         {
+            Contacts = new List<Contact>();
+            Calls = new CallsBook();
             SmsProvider = new SMSProvider();
             Store = new Storage();
             SmsProvider.SMSMessageReceived += (message) => Store.AddMessage(message);

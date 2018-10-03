@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClassLibraryMobile;
 
 namespace ContactsWinForm.Tests {
     [TestClass()]
@@ -13,9 +14,9 @@ namespace ContactsWinForm.Tests {
         {
             Contact conactVasya = new Contact("Vasya", "+380986543211");
             List<Call> list = new List<Call>();
-            list.Add(new Call(conactVasya, "+380986543211",DateTime.Today.AddDays(-2),CallDirections.incoming));
-            list.Add(new Call(conactVasya, "+380986543211", DateTime.Now, CallDirections.incoming));
-            list.Add(new Call(new Contact("Petya", "+380661234567"), "+380661234567", DateTime.Today.AddDays(-1), CallDirections.outcoming));
+            list.Add(new Call(conactVasya, "+380986543211",DateTime.Today.AddDays(-2),CallDirections.incoming,2.2));
+            list.Add(new Call(conactVasya, "+380986543211", DateTime.Now, CallDirections.incoming,0.7));
+            list.Add(new Call(new Contact("Petya", "+380661234567"), "+380661234567", DateTime.Today.AddDays(-1), CallDirections.outcoming,3.0));
             list.Sort();
             return list;
         }
@@ -25,7 +26,7 @@ namespace ContactsWinForm.Tests {
         {
             //Arrange
             List<Call> calls = CreateRepo();
-            Call newCall = new Call(new Contact("Olya", "+380997776655"), "+380997776655", DateTime.Now, CallDirections.outcoming);
+            Call newCall = new Call(new Contact("Olya", "+380997776655"), "+380997776655", DateTime.Now, CallDirections.outcoming,1.0);
 
             //Act
             calls.Add(newCall);
@@ -33,7 +34,7 @@ namespace ContactsWinForm.Tests {
 
             //Assert
             //Assert.AreEqual(newCall,calls[0]);
-            Assert.IsTrue(calls[0].CompareTo(newCall) == 0);
+            Assert.IsTrue(calls.Last() == newCall);
         }
 
         [TestMethod()]

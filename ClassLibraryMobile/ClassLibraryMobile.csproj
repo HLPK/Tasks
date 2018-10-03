@@ -54,6 +54,9 @@
     <Compile Include="AddDictionary\OxfordDict.cs" />
     <Compile Include="AddDictionary\PromptDict.cs" />
     <Compile Include="AddDictionary\UnknownDict.cs" />
+    <Compile Include="Calls\Call.cs" />
+    <Compile Include="Calls\CallsBook.cs" />
+    <Compile Include="Calls\Contact.cs" />
     <Compile Include="Dimensions.cs" />
     <Compile Include="Messages\Filter.cs" />
     <Compile Include="Messages\Message.cs" />

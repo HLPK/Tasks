@@ -51,10 +51,15 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="EqualsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SortingTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ClassLibraryMobile\ClassLibraryMobile.csproj">
+      <Project>{86b0d576-3822-439d-b543-4989dab519b1}</Project>
+      <Name>ClassLibraryMobile</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ContactsWinForm\ContactsWinForm.csproj">
       <Project>{6526A263-C020-4D55-9203-CE80AE6A5B23}</Project>
       <Name>ContactsWinForm</Name>

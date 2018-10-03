@@ -60,6 +60,7 @@ namespace ClassLibraryMobile.Battery.Tests {
 
             //Act
             Thread.Sleep(4000);
+            charger.StopAll();
 
             //Assert
             Assert.IsTrue(charger.Battery.Charge < 100);
@@ -76,6 +77,7 @@ namespace ClassLibraryMobile.Battery.Tests {
             //Act
             charger.Charge();
             Thread.Sleep(4000);
+            charger.StopAll();
 
             //Assert
             Assert.IsTrue(charger.Battery.Charge == 100);
@@ -90,6 +92,7 @@ namespace ClassLibraryMobile.Battery.Tests {
 
             //Act
             Thread.Sleep(4000);
+            charger.StopAll();
 
             //Assert
             Assert.IsTrue(charger.Battery.Charge < 100);
@@ -105,6 +108,7 @@ namespace ClassLibraryMobile.Battery.Tests {
             //Act
             charger.Charge();
             Thread.Sleep(4000);
+            charger.StopAll();
 
             //Assert
             Assert.IsTrue(charger.Battery.Charge > 90);
